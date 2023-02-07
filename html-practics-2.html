@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 1. *(별표, 에스터리스크)는 무엇을 의미할까요? */
+    * { 
+      margin:0; 
+      padding:0; /* padding은 무엇을 의미할까요? */ 
+      box-sizing:border-box; /* 어려움 : box-sizing은 무엇을 의미할까요?*/
+    }
+    body > div { 
+      /* 일반적인 선택자(selector)가 아닌 꺽쇠가 달려있는 형태는 무엇을 의미할까요? */
+      width: 100vw; /* pixel이 아닌 낯설은 단위인 vw는 무엇을 의미할까요?*/
+      height: 100vh; /* vh 단위는 무엇을 의미할까요? */
+    }
+
+    .bg-color-1 {background-color: darkkhaki;}
+    .bg-color-2 {background-color:darkslategrey;}
+    .bg-color-3 {background-color:darksalmon;}
+  </style>
+</head>
+<body>
+  <div class="bg-color-1"></div>
+  <div class="bg-color-2"></div>
+  <div class="bg-color-3"></div>
+</body>
+</html>
