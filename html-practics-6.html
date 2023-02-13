@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* flex set */
+    .display-flex {display: flex;}
+    /* axis change property */
+    .flex-direction-row {flex-direction: row;}
+    .flex-direction-row-reverse {flex-direction: row-reverse;}
+    .flex-direction-column {flex-direction: column;}
+    .flex-direction-column-reverse {flex-direction: column-reverse;}
+    /* wrap */
+    .flex-wrap {flex-wrap: wrap;}
+    .flex-wrap-reverse {flex-wrap: wrap-reverse;}
+    /* main axis */
+    .justify-content-start {justify-content: flex-start;}
+    .justify-content-end {justify-content: flex-end;}
+    .justify-content-center {justify-content: center;}
+    /* cross axis */
+    .align-items-start {align-items: flex-start;}
+    .align-items-end {align-items: flex-end;}
+    .align-items-center {align-items: center;}
+
+  </style>
+</head>
+<body>
+  <!-- 아래의 #container div 태그는 사실상 정 가운데 형태로 flex 속성이 적용된 셈이 된다. -->
+  <div id="container" class="display-flex justify-content-center align-items-center">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</body>
+</html>
