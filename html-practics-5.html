@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #container { /* 부모태그 container */
+      width: 1000px;
+      height: 1000px;
+      background-color: lightblue;
+      /* 구도(layout)을 위한 CSS 대표적인 속성들 */
+      display:flex;
+      flex-direction: column;
+      justify-content:center; /* 주축 main axis*/
+      align-items: center; /* 교차축 cross axis*/
+      /*
+       display: flex; 속성들을 '상속 받은' 자식들은
+       특수한 형태로 구도를 배치할 수 있게 된다.
+      */
+    }
+    #container > div {
+      width: 100px;
+      height: 100px;
+      background-color: sandybrown;
+      border: 1px solid black;
+    }
+    /* 
+      flex의 하위속성으로 순서배치를
+      order와 같은 item용(자식) 속성을 지원한다.
+    */
+    #container > div:nth-child(1){order:3;}
+    #container > div:nth-child(2){order:2;}
+    #container > div:nth-child(3){order:4;}
+    #container > div:nth-child(4){order:1;}
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+  </div>
+</body>
+</html>
