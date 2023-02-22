@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+  </div>
+  <script>
+
+    
+
+    let student = []; // 문자열로 구성된 배열 요소(element)
+    let root = document.getElementById("root");
+    // root 문서의 식별자 (identifier)
+
+    for(let i = 0; i < student.length; i++) {
+      // 반복문 for문이 실행할 코드 
+      let li = document.createElement("li");
+      li.textContent = student[i];
+      li.style.backgroundColor = "#ccc";
+      root.appendChild(li);
+      //
+    }
+    // 내가 만들지 않은 함수() -> DOM API method 라고 부른다.
+    // getElementById()
+    // createElement()
+    // appendChild()
+  </script>
+</body>
+</html>
