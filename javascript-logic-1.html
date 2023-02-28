@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="root">
+    <div>
+      <h1>title</h1>
+    </div>
+    <div>
+      <hr>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum deserunt, praesentium delectus eum veniam excepturi molestiae! Ipsum in magnam et?</p>
+    </div>
+    <div>
+      <div id="button"></div>
+    </div>
+  </div>
+  <script>
+    const root = document.getElementById('root');
+    root.style.width = "100vw";
+    root.style.height = "100vh";
+    root.style.backgroundColor = "#ccc";
+    root.style.display = "flex";
+    root.style.flexDirection = "column";
+    root.style.justifyContent = "center";
+    root.style.alignItems = "center";
+
+    for(let i = 0; i < root.children.length; i++) {
+      root.children[i].style.width = "500px";
+      root.children[i].style.height = "150px";
+      root.children[i].style.border = "1px solid black";
+    }
+
+    root.children[root.children.length - 1].style.backgroundColor = "red";
+    root.children[root.children.length - 1].style.borderRadius =  "250px";
+
+  </script>
+  <script>
+    const darkmode = document.getElementById('button');
+    let switchValue = true;
+    darkmode.addEventListener('click', function() {
+      if(switchValue === true) {
+        // 밝은 버전의 스타일링
+        switchValue = false;
+        // 위에 스타일링 실행이 끝났으므로 false로 재할당
+      } else {
+        // 어두운 버전의 스타일링
+        switchValue = true;
+        // 위에 어두운 버전 스타일링 끝났으므로 true로 재할당
+      }
+    });
+  </script>
+</body>
+</html>
