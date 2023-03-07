@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{margin:0; padding:0; box-sizing:border-box; }
+    body {
+      overflow-x: hidden;
+    }
+    header {
+      width: 100vw;
+      height: 100px;
+      background-color: #333;
+      /* position:fixed를 통해 브라우저 기준으로 고정 */
+      position: fixed;
+      top:0;
+      /* flex set */
+      /* button 태그들 간단히 가운데 정렬 */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    header > button {
+      width: 200px;
+      height: 50px;
+      margin:10px;
+    }
+    #root {
+      width: 100vw;
+      height: 100vh;
+      background-color: #eee;
+      /* flex set */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <button id="plus">plus</button>
+    <button id="minus">minus</button>
+  </header>
+  <div id="root"></div>
+  <script>
+    // 편하게 관리하기 위해 임의의 객체로 wrapping 하였다.
+    const domElements = {
+      plus: document.getElementById('plus'),
+      minus: document.getElementById('minus'),
+      root: document.getElementById('root')
+    }
+    /*
+      아래의 elementMaker함수는 두개의 paramater를 받도록 설계되었다.
+      1. 태그 이름 === tagName 
+      2. 텍스트 값 === textValue
+      나머지 스타일링 관련 실행 구문은 리터럴이다. (표시정도로만 확인하기 위함)
+
+      결과적으로 elementMaker함수를 호출한다면, 태그요소를 만들고, 텍스트를 넣어주고, 스타일링을 해주는 함수가 된다.
+      하지만 자식으로 붙이는 실행 구문은 없다.
+    */
+    function elementMaker(tagName, textValue) {
+      const newElement = document.createElement(tagName);
+      newElement.textContent = textValue;
+      newElement.style.width = "100px";
+      newElement.style.height = "100px";
+      newElement.style.border = "1px solid blue";
+      return newElement;
+    }
+
+    /*
+      plus라는 아이디를 가진 button 태그에 click 이벤트를 장착했다.
+      이벤트가 발생하면, elementMaker함수를 호출하고, 그 결과값을 appendChild메서드를 통해 root라는 아이디를 가진 div태그의 자식으로 붙여준다.
+      자식으로 붙여주는 시점이 '이밴트가 발생했을 때'라는 점이 주요 관점이다. 
+    */
+    domElements.plus.addEventListener('click', function() {
+      let appendElement = elementMaker('div', "동적으로 만드는 요소다!");
+      domElements.root.appendChild(appendElement);
+    });
+    /*
+      minus라는 아이디에 장착한 이벤트는 한가지 조건이 걸려있다.
+      root라는 아이디를 가진 div태그의 자식요소가 존재하는지를 확인하고, 존재한다면, 그 첫번째 자식요소를 삭제해주는 로직이다. (예제를 제작할때 버그를 발견하여 조건을 장착해주었다)
+    */
+    domElements.minus.addEventListener('click', function() {
+      if(domElements.root.firstElementChild !== null) {
+        // root라는 아이디를 가진 div태그의 자식요소가 존재하지 않는다면 ★참(true)★
+        // 여기서 null이라는 데이터타입은 '존재하지 않는다'라는 의미이다.
+        let removeElement = domElements.root.firstElementChild;
+        // 첫번째 자식 요소를 찾아 removeElement라는 변수에 할당한다.
+        domElements.root.removeChild(removeElement);
+        // append(덧붙이는)와 반대되는 개념이 remove(떼어내는)이다.
+      } else {
+        alert("더이상 삭제할 요소가 없습니다.");
+        // 간단하게 알람을 통해 조작되지 않았을 때를 알려주는 형식으로 에러를 처리했다.
+      }
+    });
+
+  </script>
+</body>
+</html>
