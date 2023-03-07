@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 부모 root */
+    #root {
+      display:flex;
+      justify-content: center;
+      align-items: center;
+    }
+    /* 자식 둘, 편의상 id로 명시하였다. */
+    #element-maker {
+      width: 100px;
+      height: 100px;
+      background-color: cadetblue;
+    }
+    #container {
+      width: 500px;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <!-- 마크업 구조 -->
+  <div id="root">
+    <button id="element-maker">click!</button>
+    <div id="container"></div>
+  </div>
+  <!-- 
+    1. 예제의 특성을 고려하여 초점이 될 개념에 집중하기 위해 정적으로 작성하였다.
+    2. 동적으로 제작 && 정적으로 작성 두가지 방법 모두 자유롭게 작성 할 수 있는지 점검한다.
+   -->
+  <script>
+    const elementMaker = document.getElementById('element-maker');
+    // button 태그는 클릭이벤트의 '트리거'로, 인터렉션 하기 위해 제작했다.
+
+    const container = document.getElementById('container');
+    // container 태그는 클릭이벤트를 통해 실행될 요소를 담기 위해 제작했다.
+
+    elementMaker.addEventListener('click', function() {
+      // 클릭이벤트를 button 태그에 설치한 것을 눈여겨 볼 것
+      // 아래의 구문은 클릭이벤트가 발생하면, 실행될 일련의 동작이다.
+      // ---------------------------------------------------------------------------
+      const newElement = document.createElement('div');
+      // 클릭이벤트가 발생하면, 새로운 div 태그를 생성한다.
+      newElement.textContent = "새로운 요소입니다!";
+      // 생성된 div 태그에 텍스트를 넣는다.
+      newElement.style.width = "100px";
+      newElement.style.height = "100px";
+      newElement.style.border = "1px solid blue";
+      // 생성된 div 태그에 스타일을 넣는다.
+
+      container.appendChild(newElement);
+      // container 태그에 생성된 div 태그를 자식으로 추가한다.
+      // ---------------------------------------------------------------------------
+    })
+  </script>
+</body>
+</html>
